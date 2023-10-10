@@ -1,0 +1,15 @@
+[package]
+name = "autodark-egui-rr-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+opt-level = "z"  # 最大优化级别
+panic = "abort"  # 在panic时中止程序
+
+[dependencies]
+eframe ="0.23.0"
+env_logger = "0.10.0"
+chrono = "0.4.31"
+winreg="0.51.0"

@@ -1,0 +1,10 @@
+c:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\eframe-0.22.0\target\debug\deps\arboard-9b2066f7fdf9d1f3.rmeta: C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\lib.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\common.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\mod.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\windows.rs
+
+c:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\eframe-0.22.0\target\debug\deps\libarboard-9b2066f7fdf9d1f3.rlib: C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\lib.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\common.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\mod.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\windows.rs
+
+c:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\eframe-0.22.0\target\debug\deps\arboard-9b2066f7fdf9d1f3.d: C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\lib.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\common.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\mod.rs C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\windows.rs
+
+C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\lib.rs:
+C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\common.rs:
+C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\mod.rs:
+C:\Users\Administrator\.cargo\registry\src\index.crates.io-6f17d22bba15001f\arboard-3.2.1\src\platform\windows.rs:
