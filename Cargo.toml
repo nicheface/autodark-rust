@@ -13,3 +13,7 @@ eframe ="0.23.0"
 env_logger = "0.10.0"
 chrono = "0.4.31"
 winreg="0.51.0"
+
+[[bin]]
+name = "autodark-egui-rr-test"  # 可执行文件的名称
+path = "src/main.rs"           # 可执行文件的入口文件路径
