@@ -23,11 +23,9 @@ jobs:
           with:
             toolchain: stable
             override: true
-        - name: rust-cargo
-          uses: actions-rs/cargo@v1.0.1
-          with:
-            # Cargo command to run (ex. `check` or `build`)
-            command: cargo build --release
+        - name: Build and bundle
+          run: |
+              cargo build --release
         - name: Upload to Release
           uses: actions/upload-release-asset@v1
           with:
