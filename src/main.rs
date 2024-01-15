@@ -13,7 +13,7 @@ use std::{env, fmt};
 use winreg::enums::KEY_SET_VALUE;
 use winreg::{
     enums::{HKEY_CURRENT_USER, KEY_READ},
-    RegKey, RegValue,
+    RegKey,
 };
 
 #[derive(Default)]
@@ -165,17 +165,21 @@ impl eframe::App for MyApp {
         // 在每次更新时检查主题模式并更新界面
         self.is_dark_mode = is_dark_mode_enabled();
         self.is_system_dark_mode = is_system_dark_mode_enabled();
+        let mut tempautostart = self.is_autostart;
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading("深浅主题模式自动切换软件");
             ui.group(|ui| ui.horizontal(|ui| ui.checkbox(&mut self.is_autostart, "是否开机启动")));
-            if self.is_autostart {
-                option_env!("CARGO_PKG_NAME").map(|app_name| {
-                    set_autostart(app_name, &env::current_exe().unwrap().to_str().unwrap())
-                });
-            } else {
-                // 取消开机启动项
-                option_env!("CARGO_PKG_NAME").map(|app_name| remove_startup_entry(app_name));
+            if self.is_autostart != tempautostart {
+                if self.is_autostart {
+                    option_env!("CARGO_PKG_NAME").map(|app_name| {
+                        set_autostart(app_name, &env::current_exe().unwrap().to_str().unwrap())
+                    });
+                } else {
+                    // 取消开机启动项
+                    option_env!("CARGO_PKG_NAME").map(|app_name| remove_startup_entry(app_name));
+                }
             }
+
             ui.group(|ui| {
                 ui.horizontal(|ui| {
                     // ui.label("System Theme same with App theme:");
@@ -453,7 +457,7 @@ fn set_autostart(app_name: &str, app_path: &str) -> Result<(), Box<dyn Error>> {
     // 设置注册表项值
     key.set_value(app_name, &app_path)?;
 
-    println!("成功添加 {} 到开机启动项。", app_name);
+    // println!("成功添加 {} 到开机启动项。", app_name);
 
     Ok(())
 }
@@ -467,9 +471,9 @@ fn remove_startup_entry(app_name: &str) -> Result<(), Box<dyn Error>> {
 
     // 删除注册表项值
     if let Err(err) = key.delete_value(app_name) {
-        eprintln!("删除注册表项值时出错：{}", err);
+        // eprintln!("删除注册表项值时出错：{}", err);
     } else {
-        println!("成功取消开机启动项 {}。", app_name);
+        // println!("成功取消开机启动项 {}。", app_name);
     }
 
     Ok(())
