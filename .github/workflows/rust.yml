@@ -52,7 +52,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: dist/*
-        name: Release  # 使用标签名称作为 Release 标题
+        name: Release - ${{ github.ref_name }} # 使用标签名称作为 Release 标题
       env:
         GITHUB_TOKEN: ${{ secrets.TEST }}
     - name: Publish Release
