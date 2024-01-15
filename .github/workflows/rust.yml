@@ -2,9 +2,8 @@ name: Rust
 
 on:
   push:
-    branches: [ "dev" ]
-  pull_request:
-    branches: [ "dev" ]
+    tags:
+      - '*'
 
 env:
   CARGO_TERM_COLOR: always
@@ -26,15 +25,36 @@ jobs:
         - name: Build and bundle
           run: |
               cargo build --release
-        - name: Upload to Release
-          uses: actions/upload-release-asset@v1
+        - name: Archive extension
+          run: mv target/release/*.exe dist/ 
+
+        - name: Upload release artifact
+          uses: actions/upload-artifact@v2
           with:
-            upload_url: ${{ github.event.release.upload_url }}
-            asset_path: target\release\autodark_egui_rr_test.exe  # 替换成你的应用程序路径
-            asset_name: autodark_egui_rr_test.exe   # 替换成你的应用程序名称
-            asset_content_type: application/octet-stream
-          env:
-            GITHUB_TOKEN:  ${{ secrets.TEST }}
+            name: autodark_rust-${{ github.ref_name }}  # 使用标签名称作为版本号
+            path: dist
+  release:
+    runs-on: windows-latest
+    needs: build
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Download release artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: autodark_rust-${{ github.ref_name }}
+        path: dist
+
+    - name: Create GitHub Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: dist/*
+        name: Release ${{ github.ref_name }}  # 使用标签名称作为 Release 标题
+      env:
+        GITHUB_TOKEN: ${{ secrets.TEST }}
+
 
 
           
