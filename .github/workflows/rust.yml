@@ -53,8 +53,10 @@ jobs:
       with:
         files: dist/*
         name: Release - ${{ github.ref_name }} # 使用标签名称作为 Release 标题
+        
       env:
         GITHUB_TOKEN: ${{ secrets.TEST }}
+        tag: ${{ github.ref_name }}
     - name: Publish Release
       run: echo "Release published at ${{ steps.create_release.outputs.url }}"
 
