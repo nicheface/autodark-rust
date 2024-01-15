@@ -2,8 +2,9 @@ name: Rust
 
 on:
   push:
-    tags:
-      '*'
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
 
 env:
   CARGO_TERM_COLOR: always
@@ -54,7 +55,8 @@ jobs:
         name: Release ${{ github.ref_name }}  # 使用标签名称作为 Release 标题
       env:
         GITHUB_TOKEN: ${{ secrets.TEST }}
-
+    - name: Publish Release
+      run: echo "Release published at ${{ steps.create_release.outputs.url }}"
 
 
           
