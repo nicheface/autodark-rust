@@ -32,7 +32,7 @@ jobs:
         - name: Upload release artifact
           uses: actions/upload-artifact@v2
           with:
-            name: autodark_rust-${{ github.ref_name }}  # 使用标签名称作为版本号
+            name: autodark_rust
             path: dist
   release:
     runs-on: windows-latest
@@ -44,7 +44,7 @@ jobs:
     - name: Download release artifact
       uses: actions/download-artifact@v2
       with:
-        name: autodark_rust-${{ github.ref_name }}
+        name: autodark_rust
         path: dist
 
     - name: Create GitHub Release
@@ -52,7 +52,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: dist/*
-        name: Release ${{ github.ref_name }}  # 使用标签名称作为 Release 标题
+        name: Release  # 使用标签名称作为 Release 标题
       env:
         GITHUB_TOKEN: ${{ secrets.TEST }}
     - name: Publish Release
